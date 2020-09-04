@@ -50,7 +50,7 @@ namespace Оrganiser
             listViewTask.Items.Clear();
             foreach (DailyTask task in dailyTasks)
             {
-                task.AddTask(listViewTask, task.checkTime);
+                task.AddTask(listViewTask);
             }
         }
 
@@ -73,11 +73,6 @@ namespace Оrganiser
             { textBoxСurrentTask.Text = $"{dailyTasks[taskIndex].date.ToString("d")} {dailyTasks[taskIndex].hour}:{dailyTasks[taskIndex].minute}\n{dailyTasks[taskIndex].name}"; }
             else
             { textBoxСurrentTask.Text = $"{dailyTasks[taskIndex].date.ToString("d")}\n{dailyTasks[taskIndex].name}"; }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DailyTask.SaveTaskList(dailyTasks);
         }
     }
 }

@@ -101,7 +101,7 @@ namespace Оrganiser
             //TODO: По нажатию на X вывести диалоговое окно и обновить время задачи или удалить задачу из списка TaskList.
         }
 
-        public void AddTask(ListView listViewTask, bool checkTime)
+        public void AddTask(ListView listViewTask)
         {
             ListViewItem item = new ListViewItem();
             if (checkTime)
