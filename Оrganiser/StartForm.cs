@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,12 @@ namespace Оrganiser
         {
             statusDateRequest = false;
 
+            // Загрузка списка задач из файла
             dailyTasks = new List<DailyTask>();
-            //TODO сделать заполнения листа из файла
+            if (File.Exists("tasks.dat"))
+            {
+                dailyTasks = DailyTask.LoadTaskList();
+            }
         }
 
         private void AddTaskButton_Click(object sender, EventArgs e)
@@ -70,9 +75,9 @@ namespace Оrganiser
             descriptionTextBox.Text = dailyTasks[taskIndex].description;
 
             if (dailyTasks[taskIndex].checkTime)
-            { textBoxСurrentTask.Text = $"{dailyTasks[taskIndex].date.ToString("d")} {dailyTasks[taskIndex].hour}:{dailyTasks[taskIndex].minute}\n{dailyTasks[taskIndex].name}"; }
+            { textBoxСurrentTask.Text = $"{dailyTasks[taskIndex].date:d} {dailyTasks[taskIndex].hour}:{dailyTasks[taskIndex].minute}\n{dailyTasks[taskIndex].name}"; }
             else
-            { textBoxСurrentTask.Text = $"{dailyTasks[taskIndex].date.ToString("d")}\n{dailyTasks[taskIndex].name}"; }
+            { textBoxСurrentTask.Text = $"{dailyTasks[taskIndex].date:d}\n{dailyTasks[taskIndex].name}"; }
         }
     }
 }

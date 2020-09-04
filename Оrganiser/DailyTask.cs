@@ -8,9 +8,12 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Оrganiser
 {
+    [Serializable]
     public class DailyTask : IDisposable
     {
         private int intHour;
@@ -53,36 +56,23 @@ namespace Оrganiser
 
         public static void SaveTaskList(List<DailyTask> dailyTasks)
         {
-            string filename = "tasklist.txt";
-            using (StreamWriter sw = new StreamWriter(filename, false, Encoding.UTF8))
+            string filename = "tasks.dat";
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
             {
-                foreach (DailyTask task in dailyTasks)
-                {
-                    sw.WriteLine($"{task.date:d} // {task.hour} // {task.minute} // {task.checkTime} // {task.name} // {task.description} // {task.status}");
-                }
+                formatter.Serialize(fs, dailyTasks);
             }
-
-            filename = "tasks.txt";
-            using (FileStream fs = new FileStream(filename, FileMode.Create))
-            {
-                //TODO Здесь используется сериализация.
-            }
-
         }
 
-        public static void LoadTaskList()
+        public static List<DailyTask> LoadTaskList()
         {
-            string filename = "tasklist.txt";
-            using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
+            string filename = "tasks.dat";
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream(filename, FileMode.Open))
             {
-                string line;
-                while ((line = sr.ReadLine()) != null) //читаем по одной линии(строке) пока не вычитаем все из потока (пока не достигнем конца файла)
-                {
-                    Console.WriteLine(line);
-                }
+                List<DailyTask> dailyTasks = (List<DailyTask>)formatter.Deserialize(fs);
+                return dailyTasks;
             }
-            //TODO Здесь используется десериализация
-
         }
 
         public void Dispose()

@@ -30,6 +30,8 @@ namespace Оrganiser
             comboBoxTaskMinute.DropDownStyle = ComboBoxStyle.DropDownList;
             AddHours();
             AddMinutes();
+            comboBoxTaskHour.Text = "00";
+            comboBoxTaskMinute.Text = "00";
         }
 
         private void AddHours()

@@ -68,7 +68,6 @@
     <Compile Include="DateRequestForm.Designer.cs">
       <DependentUpon>DateRequestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IEquatable.cs" />
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
