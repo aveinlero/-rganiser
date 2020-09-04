@@ -81,6 +81,8 @@ namespace Оrganiser
                     Console.WriteLine(line);
                 }
             }
+            //TODO Здесь используется десериализация
+
         }
 
         public void Dispose()
