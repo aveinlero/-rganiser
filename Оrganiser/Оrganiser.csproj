@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive.Designer.cs">
+      <DependentUpon>Archive.cs</DependentUpon>
+    </Compile>
     <Compile Include="DailyTask.cs" />
     <Compile Include="DateRequestForm.cs">
       <SubType>Form</SubType>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Archive.resx">
+      <DependentUpon>Archive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DateRequestForm.resx">
       <DependentUpon>DateRequestForm.cs</DependentUpon>
     </EmbeddedResource>

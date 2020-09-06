@@ -30,12 +30,13 @@
         {
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.AddTaskButton = new System.Windows.Forms.Button();
-            this.CompleteTaskButton = new System.Windows.Forms.Button();
-            this.ResetTaskButton = new System.Windows.Forms.Button();
+            this.ButtonCompleteTask = new System.Windows.Forms.Button();
+            this.ButtonResetTask = new System.Windows.Forms.Button();
             this.listViewTask = new System.Windows.Forms.ListView();
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DayTask = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxСurrentTask = new System.Windows.Forms.RichTextBox();
+            this.ButtonOpenArchive = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // descriptionTextBox
@@ -59,25 +60,28 @@
             this.AddTaskButton.UseVisualStyleBackColor = true;
             this.AddTaskButton.Click += new System.EventHandler(this.AddTaskButton_Click);
             // 
-            // CompleteTaskButton
+            // ButtonCompleteTask
             // 
-            this.CompleteTaskButton.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CompleteTaskButton.Location = new System.Drawing.Point(462, 12);
-            this.CompleteTaskButton.Name = "CompleteTaskButton";
-            this.CompleteTaskButton.Size = new System.Drawing.Size(64, 35);
-            this.CompleteTaskButton.TabIndex = 3;
-            this.CompleteTaskButton.Text = "V";
-            this.CompleteTaskButton.UseVisualStyleBackColor = true;
+            this.ButtonCompleteTask.Enabled = false;
+            this.ButtonCompleteTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonCompleteTask.Location = new System.Drawing.Point(462, 12);
+            this.ButtonCompleteTask.Name = "ButtonCompleteTask";
+            this.ButtonCompleteTask.Size = new System.Drawing.Size(64, 35);
+            this.ButtonCompleteTask.TabIndex = 3;
+            this.ButtonCompleteTask.Text = "V";
+            this.ButtonCompleteTask.UseVisualStyleBackColor = true;
+            this.ButtonCompleteTask.Click += new System.EventHandler(this.ButtonCompleteTask_Click);
             // 
-            // ResetTaskButton
+            // ButtonResetTask
             // 
-            this.ResetTaskButton.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResetTaskButton.Location = new System.Drawing.Point(532, 12);
-            this.ResetTaskButton.Name = "ResetTaskButton";
-            this.ResetTaskButton.Size = new System.Drawing.Size(64, 35);
-            this.ResetTaskButton.TabIndex = 4;
-            this.ResetTaskButton.Text = "X";
-            this.ResetTaskButton.UseVisualStyleBackColor = true;
+            this.ButtonResetTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonResetTask.Location = new System.Drawing.Point(532, 12);
+            this.ButtonResetTask.Name = "ButtonResetTask";
+            this.ButtonResetTask.Size = new System.Drawing.Size(64, 35);
+            this.ButtonResetTask.TabIndex = 4;
+            this.ButtonResetTask.Text = "X";
+            this.ButtonResetTask.UseVisualStyleBackColor = true;
+            this.ButtonResetTask.Click += new System.EventHandler(this.ButtonResetTask_Click);
             // 
             // listViewTask
             // 
@@ -115,22 +119,35 @@
             this.textBoxСurrentTask.TabIndex = 6;
             this.textBoxСurrentTask.Text = "Задача не указана";
             // 
+            // ButtonOpenArchive
+            // 
+            this.ButtonOpenArchive.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonOpenArchive.Location = new System.Drawing.Point(617, 12);
+            this.ButtonOpenArchive.Name = "ButtonOpenArchive";
+            this.ButtonOpenArchive.Size = new System.Drawing.Size(64, 35);
+            this.ButtonOpenArchive.TabIndex = 7;
+            this.ButtonOpenArchive.Text = "Архив";
+            this.ButtonOpenArchive.UseVisualStyleBackColor = true;
+            this.ButtonOpenArchive.Click += new System.EventHandler(this.ButtonOpenArchive_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 292);
+            this.Controls.Add(this.ButtonOpenArchive);
             this.Controls.Add(this.textBoxСurrentTask);
             this.Controls.Add(this.listViewTask);
-            this.Controls.Add(this.ResetTaskButton);
-            this.Controls.Add(this.CompleteTaskButton);
+            this.Controls.Add(this.ButtonResetTask);
+            this.Controls.Add(this.ButtonCompleteTask);
             this.Controls.Add(this.AddTaskButton);
             this.Controls.Add(this.descriptionTextBox);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organizer";
             this.Activated += new System.EventHandler(this.StartForm_Activated);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartForm_FormClosing);
+            this.Load += new System.EventHandler(this.StartForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -139,12 +156,13 @@
 
         private System.Windows.Forms.RichTextBox descriptionTextBox;
         private System.Windows.Forms.Button AddTaskButton;
-        private System.Windows.Forms.Button CompleteTaskButton;
-        private System.Windows.Forms.Button ResetTaskButton;
+        private System.Windows.Forms.Button ButtonCompleteTask;
+        private System.Windows.Forms.Button ButtonResetTask;
         private System.Windows.Forms.ListView listViewTask;
         private System.Windows.Forms.ColumnHeader Date;
         private System.Windows.Forms.ColumnHeader DayTask;
         private System.Windows.Forms.RichTextBox textBoxСurrentTask;
+        private System.Windows.Forms.Button ButtonOpenArchive;
     }
 }
 

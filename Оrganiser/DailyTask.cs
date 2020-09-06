@@ -18,8 +18,8 @@ namespace Оrganiser
     {
         private int intHour;
         private int intMinute;
-        
-        public bool status { get; }
+
+        public bool NewTask { get; set; } = true;
         public string name { get; }
         public string hour { get; }
         public string minute { get; }
@@ -38,7 +38,6 @@ namespace Оrganiser
             this.intMinute = 0;
             this.description = "";
             this.checkTime = false;
-            this.status = false;
         }
         
         public DailyTask(DateTime date, string hour, string minute, string name)
@@ -51,12 +50,10 @@ namespace Оrganiser
             this.intMinute = Int32.Parse(hour);
             this.description = "";
             this.checkTime = true;
-            this.status = false;
         }
 
-        public static void SaveTaskList(List<DailyTask> dailyTasks)
+        public static void SaveTaskList(List<DailyTask> dailyTasks, string filename)
         {
-            string filename = "tasks.dat";
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
             {
@@ -64,9 +61,8 @@ namespace Оrganiser
             }
         }
 
-        public static List<DailyTask> LoadTaskList()
+        public static List<DailyTask> LoadTaskList(string filename)
         {
-            string filename = "tasks.dat";
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(filename, FileMode.Open))
             {
@@ -75,15 +71,10 @@ namespace Оrganiser
             }
         }
 
-        public void Dispose()
+        public static void TransferTask(List<DailyTask> incoming, List<DailyTask> outgoing, int outIndex )
         {
-            //TODO: уничтожение архивной записи из архива задач по достижении лимита архива
-            throw new NotImplementedException();
-        }
-
-        private void DeleteTask()
-        {
-            //TODO: По нажатию кнопки V удалить задачу из списка, но сохранить ее в архив задач.
+            incoming.Add(outgoing[outIndex]);
+            outgoing.RemoveAt(outIndex);
         }
 
         private void ResetStatus()
@@ -91,23 +82,23 @@ namespace Оrganiser
             //TODO: По нажатию на X вывести диалоговое окно и обновить время задачи или удалить задачу из списка TaskList.
         }
 
-        public void AddTask(ListView listViewTask)
+        public void AddTask(ListView list)
         {
             ListViewItem item = new ListViewItem();
             if (checkTime)
             {
-                item.Text = $"{date.ToString("d")} {hour}:{minute}";
+                item.Text = $"{date:d} {hour}:{minute}";
                 item.SubItems.Add(name);
                 ChangeTaskColor(item);
                 
             }
             else
             {
-                item.Text = $"{date.ToString("d")}";
+                item.Text = $"{date:d}";
                 item.SubItems.Add(name);
                 ChangeTaskColor(item);
             }
-            listViewTask.Items.Add(item);
+            list.Items.Add(item);
         }
 
         private void ChangeTaskColor(ListViewItem item)
@@ -171,8 +162,37 @@ namespace Оrganiser
             }
         }
 
-        
+        public static void UpdateList(List<DailyTask> tasks, ListView listView, bool sort)
+        {
+            listView.Items.Clear();
+            if (sort) { tasks.Sort(DailyTask.SortDailyTask); }
+            foreach (DailyTask task in tasks)
+            {
+                task.AddTask(listView);
+            }
+        }
 
+        public static void LimitList(List<DailyTask> list, int limit)
+        {
+            if (list.Count > limit)
+            {
+                list.RemoveAt(0);
+                LimitList(list, limit);
+            }
+        }
+
+        public static int FindNew(List<DailyTask> tasks)
+        {
+            for (int i = 0; i <tasks.Count; i++ )
+            {
+                if (tasks[i].NewTask) 
+                {
+                    tasks[i].NewTask = false;
+                    return i; 
+                }
+            }
+            return 0;
+        }
 
     }
 }

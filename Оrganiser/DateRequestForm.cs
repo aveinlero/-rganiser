@@ -12,7 +12,7 @@ namespace Оrganiser
 {
     public partial class DateRequestForm : Form
     {
-        StartForm startForm;
+        private StartForm startForm;
         
         public DateRequestForm()
         {
@@ -72,7 +72,6 @@ namespace Оrganiser
         {
             this.Close();
             startForm.Show();
-            startForm.statusDateRequest = false;
         }
 
         private void CancelTaskButton_Click(object sender, EventArgs e)
@@ -96,6 +95,7 @@ namespace Оrganiser
             else { dailyTask = new DailyTask(date, name); }
                 
             startForm.dailyTasks.Add(dailyTask);
+            dailyTask.NewTask = true;
 
             ShowStartForm();
         }
