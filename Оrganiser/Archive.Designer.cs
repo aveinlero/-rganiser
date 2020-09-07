@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Archive));
             this.listArchive = new System.Windows.Forms.ListView();
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tasks = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,7 +59,7 @@
             // Tasks
             // 
             this.Tasks.Text = "Задача";
-            this.Tasks.Width = 500;
+            this.Tasks.Width = 480;
             // 
             // ButtonRestore
             // 
@@ -82,7 +83,7 @@
             this.ButtonDelete.UseVisualStyleBackColor = true;
             this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
-            // archive
+            // Archive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,7 +91,9 @@
             this.Controls.Add(this.ButtonDelete);
             this.Controls.Add(this.ButtonRestore);
             this.Controls.Add(this.listArchive);
-            this.Name = "archive";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "Archive";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Архив";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Archive_FormClosed);

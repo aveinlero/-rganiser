@@ -63,9 +63,9 @@ namespace Оrganiser.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ButtonAdd_64x35 {
+        internal static System.Drawing.Bitmap ButtonAdd_64x35_origin {
             get {
-                object obj = ResourceManager.GetObject("ButtonAdd 64x35", resourceCulture);
+                object obj = ResourceManager.GetObject("ButtonAdd 64x35 origin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Оrganiser.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ButtonCancel_64x35 {
+        internal static System.Drawing.Bitmap ButtonCancel_64x35_v2 {
             get {
-                object obj = ResourceManager.GetObject("ButtonCancel 64x35", resourceCulture);
+                object obj = ResourceManager.GetObject("ButtonCancel 64x35 v2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,29 @@ namespace Оrganiser.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ButtonOK_64x35 {
+        internal static System.Drawing.Bitmap ButtonCancel_64x35_v2_inactive {
             get {
-                object obj = ResourceManager.GetObject("ButtonOK 64x35", resourceCulture);
+                object obj = ResourceManager.GetObject("ButtonCancel 64x35 v2 inactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonOK_64x35_v2 {
+            get {
+                object obj = ResourceManager.GetObject("ButtonOK 64x35 v2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonOK_64x35_v2_inactive {
+            get {
+                object obj = ResourceManager.GetObject("ButtonOK 64x35 v2 inactive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

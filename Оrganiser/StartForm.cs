@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Оrganiser.Properties;
 
 namespace Оrganiser
 {
@@ -29,9 +31,6 @@ namespace Оrganiser
 
         private void StartForm_Load(object sender, EventArgs e)
         {
-            ButtonResetTask.Enabled = false;
-            ButtonCompleteTask.Enabled = false;
-
             dailyTasks = new List<DailyTask>();
             archiveTasks = new List<DailyTask>();
 
@@ -47,6 +46,7 @@ namespace Оrganiser
             }
 
             this.UpdateStartForm();
+            this.DeactivateControlButtons();
         }
 
         private void StartForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -60,22 +60,6 @@ namespace Оrganiser
             dateRequest.Show();
             this.Hide();
         }
-
-        //private void StartForm_Activated(object sender, EventArgs e)
-        //{
-        //    // Создание и сортировка списка задач
-        //    if (!(dailyTasks.Count > 0))
-        //    {
-        //        LockDescription();
-        //    }
-        //    else
-        //    {
-        //        DailyTask.UpdateList(dailyTasks, listViewTask, true);
-        //        index = DailyTask.FindNew(dailyTasks);
-        //        listViewTask.Items[index].Selected = true;
-        //        LoadDescription(index);
-        //    }
-        //}
 
         private void DescriptionTextBox_Leave(object sender, EventArgs e)
         {
@@ -116,10 +100,16 @@ namespace Оrganiser
             {
                 ButtonCompleteTask.Enabled = false;
                 ButtonResetTask.Enabled = false;
+                ButtonCompleteTask.BackgroundImage = new Bitmap(Resources.ButtonOK_64x35_v2_inactive);
+                ButtonResetTask.BackgroundImage = new Bitmap(Resources.ButtonCancel_64x35_v2_inactive);
             }
             else
             {
+                ButtonCompleteTask.Enabled = true;
+                ButtonResetTask.Enabled = true;
                 listViewTask.Items[0].Selected = true;
+                ButtonCompleteTask.BackgroundImage = new Bitmap(Resources.ButtonOK_64x35_v2);
+                ButtonResetTask.BackgroundImage = new Bitmap(Resources.ButtonCancel_64x35_v2);
             }
         }
 
@@ -139,23 +129,29 @@ namespace Оrganiser
 
         private void LoadDescription(int index)
         {
-            descriptionTextBox.Enabled = true;
-            descriptionTextBox.Text = dailyTasks[index].description;
-
-            if (dailyTasks[index].checkTime)
-            { textBoxСurrentTask.Text = $"{dailyTasks[index].date:d} {dailyTasks[index].hour}:{dailyTasks[index].minute}\n{dailyTasks[index].name}"; }
+            if (!(dailyTasks.Count == 0))
+            {
+                descriptionTextBox.Enabled = true;
+                descriptionTextBox.Text = dailyTasks[index].description;
+                if (dailyTasks[index].checkTime)
+                { textBoxСurrentTask.Text = $"{dailyTasks[index].date:d} {dailyTasks[index].hour}:{dailyTasks[index].minute}\n{dailyTasks[index].name}"; }
+                else
+                { textBoxСurrentTask.Text = $"{dailyTasks[index].date:d}\n{dailyTasks[index].name}"; }
+            }
             else
-            { textBoxСurrentTask.Text = $"{dailyTasks[index].date:d}\n{dailyTasks[index].name}"; }
+            {
+                LockDescription();
+            }
         }
 
         public void SaveDescription()
         {
-            dailyTasks[index].description = descriptionTextBox.Text;
+            if (!(dailyTasks.Count == 0)) { dailyTasks[index].description = descriptionTextBox.Text; }
         }
 
         public void UpdateStartForm()
         {
-            if (!(dailyTasks.Count > 0))
+            if (dailyTasks.Count == 0)
             {
                 LockDescription();
             }
@@ -166,6 +162,8 @@ namespace Оrganiser
                 listViewTask.Items[index].Selected = true;
                 LoadDescription(index);
             }
+            
+            DeactivateControlButtons();
         }
 
     }

@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
-            this.AddTaskButton = new System.Windows.Forms.Button();
-            this.ButtonCompleteTask = new System.Windows.Forms.Button();
-            this.ButtonResetTask = new System.Windows.Forms.Button();
             this.listViewTask = new System.Windows.Forms.ListView();
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DayTask = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxСurrentTask = new System.Windows.Forms.RichTextBox();
             this.ButtonOpenArchive = new System.Windows.Forms.Button();
+            this.ButtonResetTask = new System.Windows.Forms.Button();
+            this.ButtonCompleteTask = new System.Windows.Forms.Button();
+            this.AddTaskButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // descriptionTextBox
@@ -48,44 +49,6 @@
             this.descriptionTextBox.TabIndex = 0;
             this.descriptionTextBox.Text = "";
             this.descriptionTextBox.Leave += new System.EventHandler(this.DescriptionTextBox_Leave);
-            // 
-            // AddTaskButton
-            // 
-            this.AddTaskButton.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonAdd_64x35;
-            this.AddTaskButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AddTaskButton.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddTaskButton.Location = new System.Drawing.Point(702, 12);
-            this.AddTaskButton.Name = "AddTaskButton";
-            this.AddTaskButton.Size = new System.Drawing.Size(64, 35);
-            this.AddTaskButton.TabIndex = 1;
-            this.AddTaskButton.UseVisualStyleBackColor = true;
-            this.AddTaskButton.Click += new System.EventHandler(this.AddTaskButton_Click);
-            // 
-            // ButtonCompleteTask
-            // 
-            this.ButtonCompleteTask.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonOK_64x35;
-            this.ButtonCompleteTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonCompleteTask.Enabled = false;
-            this.ButtonCompleteTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonCompleteTask.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ButtonCompleteTask.Location = new System.Drawing.Point(462, 12);
-            this.ButtonCompleteTask.Name = "ButtonCompleteTask";
-            this.ButtonCompleteTask.Size = new System.Drawing.Size(64, 35);
-            this.ButtonCompleteTask.TabIndex = 3;
-            this.ButtonCompleteTask.UseVisualStyleBackColor = true;
-            this.ButtonCompleteTask.Click += new System.EventHandler(this.ButtonCompleteTask_Click);
-            // 
-            // ButtonResetTask
-            // 
-            this.ButtonResetTask.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonCancel_64x35;
-            this.ButtonResetTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonResetTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonResetTask.Location = new System.Drawing.Point(532, 12);
-            this.ButtonResetTask.Name = "ButtonResetTask";
-            this.ButtonResetTask.Size = new System.Drawing.Size(64, 35);
-            this.ButtonResetTask.TabIndex = 4;
-            this.ButtonResetTask.UseVisualStyleBackColor = true;
-            this.ButtonResetTask.Click += new System.EventHandler(this.ButtonResetTask_Click);
             // 
             // listViewTask
             // 
@@ -110,7 +73,7 @@
             // DayTask
             // 
             this.DayTask.Text = "Задача";
-            this.DayTask.Width = 200;
+            this.DayTask.Width = 180;
             // 
             // textBoxСurrentTask
             // 
@@ -135,11 +98,48 @@
             this.ButtonOpenArchive.UseVisualStyleBackColor = true;
             this.ButtonOpenArchive.Click += new System.EventHandler(this.ButtonOpenArchive_Click);
             // 
+            // ButtonResetTask
+            // 
+            this.ButtonResetTask.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonCancel_64x35_v2;
+            this.ButtonResetTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonResetTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonResetTask.Location = new System.Drawing.Point(532, 12);
+            this.ButtonResetTask.Name = "ButtonResetTask";
+            this.ButtonResetTask.Size = new System.Drawing.Size(64, 35);
+            this.ButtonResetTask.TabIndex = 4;
+            this.ButtonResetTask.UseVisualStyleBackColor = true;
+            this.ButtonResetTask.Click += new System.EventHandler(this.ButtonResetTask_Click);
+            // 
+            // ButtonCompleteTask
+            // 
+            this.ButtonCompleteTask.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonOK_64x35_v2;
+            this.ButtonCompleteTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonCompleteTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonCompleteTask.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ButtonCompleteTask.Location = new System.Drawing.Point(462, 12);
+            this.ButtonCompleteTask.Name = "ButtonCompleteTask";
+            this.ButtonCompleteTask.Size = new System.Drawing.Size(64, 35);
+            this.ButtonCompleteTask.TabIndex = 3;
+            this.ButtonCompleteTask.UseVisualStyleBackColor = true;
+            this.ButtonCompleteTask.Click += new System.EventHandler(this.ButtonCompleteTask_Click);
+            // 
+            // AddTaskButton
+            // 
+            this.AddTaskButton.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonAdd_64x35_origin;
+            this.AddTaskButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddTaskButton.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddTaskButton.Location = new System.Drawing.Point(702, 12);
+            this.AddTaskButton.Name = "AddTaskButton";
+            this.AddTaskButton.Size = new System.Drawing.Size(64, 35);
+            this.AddTaskButton.TabIndex = 1;
+            this.AddTaskButton.UseVisualStyleBackColor = true;
+            this.AddTaskButton.Click += new System.EventHandler(this.AddTaskButton_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 292);
+            this.ClientSize = new System.Drawing.Size(778, 292);
             this.Controls.Add(this.ButtonOpenArchive);
             this.Controls.Add(this.textBoxСurrentTask);
             this.Controls.Add(this.listViewTask);
@@ -147,6 +147,10 @@
             this.Controls.Add(this.ButtonCompleteTask);
             this.Controls.Add(this.AddTaskButton);
             this.Controls.Add(this.descriptionTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(794, 331);
+            this.MinimumSize = new System.Drawing.Size(794, 331);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organizer";
