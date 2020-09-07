@@ -51,35 +51,39 @@
             // 
             // AddTaskButton
             // 
-            this.AddTaskButton.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddTaskButton.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonAdd_64x35;
+            this.AddTaskButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddTaskButton.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddTaskButton.Location = new System.Drawing.Point(702, 12);
             this.AddTaskButton.Name = "AddTaskButton";
             this.AddTaskButton.Size = new System.Drawing.Size(64, 35);
             this.AddTaskButton.TabIndex = 1;
-            this.AddTaskButton.Text = "+";
             this.AddTaskButton.UseVisualStyleBackColor = true;
             this.AddTaskButton.Click += new System.EventHandler(this.AddTaskButton_Click);
             // 
             // ButtonCompleteTask
             // 
+            this.ButtonCompleteTask.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonOK_64x35;
+            this.ButtonCompleteTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonCompleteTask.Enabled = false;
             this.ButtonCompleteTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonCompleteTask.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ButtonCompleteTask.Location = new System.Drawing.Point(462, 12);
             this.ButtonCompleteTask.Name = "ButtonCompleteTask";
             this.ButtonCompleteTask.Size = new System.Drawing.Size(64, 35);
             this.ButtonCompleteTask.TabIndex = 3;
-            this.ButtonCompleteTask.Text = "V";
             this.ButtonCompleteTask.UseVisualStyleBackColor = true;
             this.ButtonCompleteTask.Click += new System.EventHandler(this.ButtonCompleteTask_Click);
             // 
             // ButtonResetTask
             // 
+            this.ButtonResetTask.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonCancel_64x35;
+            this.ButtonResetTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonResetTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonResetTask.Location = new System.Drawing.Point(532, 12);
             this.ButtonResetTask.Name = "ButtonResetTask";
             this.ButtonResetTask.Size = new System.Drawing.Size(64, 35);
             this.ButtonResetTask.TabIndex = 4;
-            this.ButtonResetTask.Text = "X";
             this.ButtonResetTask.UseVisualStyleBackColor = true;
             this.ButtonResetTask.Click += new System.EventHandler(this.ButtonResetTask_Click);
             // 
@@ -121,12 +125,13 @@
             // 
             // ButtonOpenArchive
             // 
+            this.ButtonOpenArchive.BackgroundImage = global::Оrganiser.Properties.Resources.checklist_64x35;
+            this.ButtonOpenArchive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonOpenArchive.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonOpenArchive.Location = new System.Drawing.Point(617, 12);
             this.ButtonOpenArchive.Name = "ButtonOpenArchive";
             this.ButtonOpenArchive.Size = new System.Drawing.Size(64, 35);
             this.ButtonOpenArchive.TabIndex = 7;
-            this.ButtonOpenArchive.Text = "Архив";
             this.ButtonOpenArchive.UseVisualStyleBackColor = true;
             this.ButtonOpenArchive.Click += new System.EventHandler(this.ButtonOpenArchive_Click);
             // 
@@ -145,7 +150,6 @@
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organizer";
-            this.Activated += new System.EventHandler(this.StartForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartForm_FormClosing);
             this.Load += new System.EventHandler(this.StartForm_Load);
             this.ResumeLayout(false);

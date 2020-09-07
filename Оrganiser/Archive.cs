@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace Оrganiser
 {
-    public partial class archive : Form
+    public partial class Archive : Form
     {
         private StartForm startForm;
 
-        public archive()
+        public Archive()
         {
             InitializeComponent();
         }
 
-        public archive(StartForm startForm)
+        public Archive(StartForm startForm)
         {
             InitializeComponent();
             this.startForm = startForm;
@@ -31,14 +31,9 @@ namespace Оrganiser
             DailyTask.UpdateList(startForm.archiveTasks, listArchive, false);
         }
 
-        private void ShowStartForm()
-        {
-            this.Close();
-            startForm.Show();
-        }
-
         private void Archive_FormClosed(object sender, FormClosedEventArgs e)
         {
+            startForm.UpdateStartForm();
             startForm.Show();
         }
 
@@ -52,7 +47,6 @@ namespace Оrganiser
                     item.Remove();
                 }
             }
-
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)

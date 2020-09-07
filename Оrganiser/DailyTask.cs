@@ -10,34 +10,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms.VisualStyles;
+using System.Runtime.CompilerServices;
 
 namespace Оrganiser
 {
     [Serializable]
-    public class DailyTask : IDisposable
+    public class DailyTask
     {
-        private int intHour;
-        private int intMinute;
+        public bool NewTask { get; set; } = false;
+        public string name { get; set; } = "";
+        public string hour { get; set; } = "00";
+        public string minute { get; set; } = "00";
+        public int intHour { get; set; } = 0;
+        public int intMinute { get; set; } = 0;
+        public DateTime date { get; set; } = DateTime.Today;
+        public bool checkTime { get; set; } = false;
+        public string description { get; set; } = "";
 
-        public bool NewTask { get; set; } = true;
-        public string name { get; }
-        public string hour { get; }
-        public string minute { get; }
-        public DateTime date { get; }
-        public bool checkTime { get; }
-        public string description { get; set; }
+        public DailyTask()
+        {
 
+        }
 
         public DailyTask(DateTime date, string name)
         {
             this.date = date;
             this.name = name;
-            this.hour = "";
-            this.intHour = 0;
-            this.minute = "";
-            this.intMinute = 0;
-            this.description = "";
-            this.checkTime = false;
+
         }
         
         public DailyTask(DateTime date, string hour, string minute, string name)
@@ -47,8 +47,7 @@ namespace Оrganiser
             this.hour = hour;
             this.intHour = Int32.Parse(hour);
             this.minute = minute;
-            this.intMinute = Int32.Parse(hour);
-            this.description = "";
+            this.intMinute = Int32.Parse(minute);
             this.checkTime = true;
         }
 
@@ -75,11 +74,6 @@ namespace Оrganiser
         {
             incoming.Add(outgoing[outIndex]);
             outgoing.RemoveAt(outIndex);
-        }
-
-        private void ResetStatus()
-        {
-            //TODO: По нажатию на X вывести диалоговое окно и обновить время задачи или удалить задачу из списка TaskList.
         }
 
         public void AddTask(ListView list)
@@ -194,5 +188,19 @@ namespace Оrganiser
             return 0;
         }
 
+        public static DailyTask Clone(DailyTask task)
+        {
+            DailyTask clone = new DailyTask();
+            clone.NewTask = task.NewTask;
+            clone.name = task.name;
+            clone.hour = task.hour;
+            clone.minute = task.minute;
+            clone.intHour = task.intHour;
+            clone.intMinute = task.intMinute;
+            clone.date = task.date;
+            clone.checkTime = task.checkTime;
+            clone.description = task.description;
+            return clone;
+        }
     }
 }

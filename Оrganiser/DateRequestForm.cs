@@ -12,7 +12,7 @@ namespace Оrganiser
 {
     public partial class DateRequestForm : Form
     {
-        private StartForm startForm;
+        protected StartForm startForm;
         
         public DateRequestForm()
         {
@@ -24,62 +24,21 @@ namespace Оrganiser
             InitializeComponent();
             this.startForm = startForm;
             this.StartPosition = FormStartPosition.CenterScreen;
-            TaskCalendar.MaxSelectionCount = 1;
 
-            comboBoxTaskHour.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxTaskMinute.DropDownStyle = ComboBoxStyle.DropDownList;
-            AddHours();
-            AddMinutes();
-            comboBoxTaskHour.Text = "00";
-            comboBoxTaskMinute.Text = "00";
         }
 
-        private void AddHours()
-        {
-            for (int i = 0; i <= 23; i++)
-            {
-                string text;
-                if (i < 10)
-                {
-                    text = "0" + i.ToString();
-                }
-                else
-                {
-                    text = i.ToString();
-                }
-                comboBoxTaskHour.Items.Add((object)text);
-            }
-        }
-
-        private void AddMinutes()
-        {
-            for (int i = 0; i <= 55; i+=5)
-            {
-                string text;
-                if (i < 10)
-                {
-                    text = "0" + i.ToString();
-                }
-                else
-                {
-                    text = i.ToString();
-                }
-                comboBoxTaskMinute.Items.Add((object)text);
-            }
-        }
-
-        private void ShowStartForm()
+        protected void ShowStartForm()
         {
             this.Close();
-            startForm.Show();
+            this.startForm.Show();
         }
 
-        private void CancelTaskButton_Click(object sender, EventArgs e)
+        public virtual void CancelTaskButton_Click(object sender, EventArgs e)
         {
             ShowStartForm();
         }
 
-        private void AddTaskButton_Click(object sender, EventArgs e)
+        public virtual void AddTaskButton_Click(object sender, EventArgs e)
         {
             DateTime date = TaskCalendar.SelectionStart;
             string name = NameTaskTextBox.Text;
@@ -97,10 +56,11 @@ namespace Оrganiser
             startForm.dailyTasks.Add(dailyTask);
             dailyTask.NewTask = true;
 
+            startForm.UpdateStartForm();
             ShowStartForm();
         }
 
-        private void AddTimeCheckBox_CheckedChanged(object sender, EventArgs e)
+        protected void AddTimeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (AddTimeCheckBox.Checked)
             {
@@ -114,5 +74,18 @@ namespace Оrganiser
             }
         }
 
+        protected void DateRequestForm_Load(object sender, EventArgs e)
+        {
+            TaskCalendar.MaxSelectionCount = 1;
+            comboBoxTaskHour.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTaskMinute.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTaskHour.Text = "00";
+            comboBoxTaskMinute.Text = "00";
+        }
+
+        private void DateRequestForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.startForm.Show();
+        }
     }
 }

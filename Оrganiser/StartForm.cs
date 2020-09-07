@@ -19,7 +19,7 @@ namespace Оrganiser
         public string fileTasks { get; set; } = "tasks.dat";
         public string fileArchive { get; set; } = "archive.dat";
 
-        private int index = 0;
+        public int index { get; private set; } = 0;
         public int limitArchive { get; } = 20;
 
         public StartForm()
@@ -45,6 +45,8 @@ namespace Оrganiser
             {
                 archiveTasks = DailyTask.LoadTaskList(fileArchive);
             }
+
+            this.UpdateStartForm();
         }
 
         private void StartForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -59,16 +61,21 @@ namespace Оrganiser
             this.Hide();
         }
 
-        private void StartForm_Activated(object sender, EventArgs e)
-        {
-            // Создание и сортировка списка задач
-            if (!(dailyTasks.Count > 0)) { LockDescription(); }
-
-            DailyTask.UpdateList(dailyTasks, listViewTask, true);
-            index = DailyTask.FindNew(dailyTasks);
-            listViewTask.Items[index].Selected = true;
-            LoadDescription(index);
-        }
+        //private void StartForm_Activated(object sender, EventArgs e)
+        //{
+        //    // Создание и сортировка списка задач
+        //    if (!(dailyTasks.Count > 0))
+        //    {
+        //        LockDescription();
+        //    }
+        //    else
+        //    {
+        //        DailyTask.UpdateList(dailyTasks, listViewTask, true);
+        //        index = DailyTask.FindNew(dailyTasks);
+        //        listViewTask.Items[index].Selected = true;
+        //        LoadDescription(index);
+        //    }
+        //}
 
         private void DescriptionTextBox_Leave(object sender, EventArgs e)
         {
@@ -88,7 +95,7 @@ namespace Оrganiser
 
         private void ButtonOpenArchive_Click(object sender, EventArgs e)
         {
-            archive archive = new archive(this);
+            Archive archive = new Archive(this);
             archive.Show();
             this.Hide();
         }
@@ -105,10 +112,10 @@ namespace Оrganiser
 
         private void DeactivateControlButtons()
         {
-            if (dailyTasks.Count == 0) 
-            { 
-                ButtonCompleteTask.Enabled = false; 
-                ButtonResetTask.Enabled = false; 
+            if (dailyTasks.Count == 0)
+            {
+                ButtonCompleteTask.Enabled = false;
+                ButtonResetTask.Enabled = false;
             }
             else
             {
@@ -118,7 +125,9 @@ namespace Оrganiser
 
         private void ButtonResetTask_Click(object sender, EventArgs e)
         {
-            //TODO Сделать сброс задачи, понадобиться новая форма наследник DateRequestForm, сменить название кнопки с Добавить на Обновить
+            FormUpdateTask formUpdateTask = new FormUpdateTask(this);
+            formUpdateTask.Show();
+            this.Hide();
         }
 
         private void LockDescription()
@@ -142,6 +151,21 @@ namespace Оrganiser
         public void SaveDescription()
         {
             dailyTasks[index].description = descriptionTextBox.Text;
+        }
+
+        public void UpdateStartForm()
+        {
+            if (!(dailyTasks.Count > 0))
+            {
+                LockDescription();
+            }
+            else
+            {
+                DailyTask.UpdateList(dailyTasks, listViewTask, true);
+                index = DailyTask.FindNew(dailyTasks);
+                listViewTask.Items[index].Selected = true;
+                LoadDescription(index);
+            }
         }
 
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.NameTaskTextBox = new System.Windows.Forms.TextBox();
             this.TaskCalendar = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.AddTaskButton = new System.Windows.Forms.Button();
@@ -35,10 +36,16 @@
             this.comboBoxTaskMinute = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.AddTimeCheckBox = new System.Windows.Forms.CheckBox();
-            this.NameTaskTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CancelTaskButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // NameTaskTextBox
+            // 
+            this.NameTaskTextBox.Location = new System.Drawing.Point(91, 190);
+            this.NameTaskTextBox.Name = "NameTaskTextBox";
+            this.NameTaskTextBox.Size = new System.Drawing.Size(427, 20);
+            this.NameTaskTextBox.TabIndex = 9;
             // 
             // TaskCalendar
             // 
@@ -73,21 +80,57 @@
             this.comboBoxTaskHour.Enabled = false;
             this.comboBoxTaskHour.FormattingEnabled = true;
             this.comboBoxTaskHour.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBoxTaskHour.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
             this.comboBoxTaskHour.Location = new System.Drawing.Point(319, 216);
             this.comboBoxTaskHour.Name = "comboBoxTaskHour";
             this.comboBoxTaskHour.Size = new System.Drawing.Size(58, 21);
             this.comboBoxTaskHour.TabIndex = 5;
-            this.comboBoxTaskHour.Text = "00";
             // 
             // comboBoxTaskMinute
             // 
             this.comboBoxTaskMinute.Enabled = false;
             this.comboBoxTaskMinute.FormattingEnabled = true;
+            this.comboBoxTaskMinute.Items.AddRange(new object[] {
+            "00",
+            "05",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55"});
             this.comboBoxTaskMinute.Location = new System.Drawing.Point(460, 216);
             this.comboBoxTaskMinute.Name = "comboBoxTaskMinute";
             this.comboBoxTaskMinute.Size = new System.Drawing.Size(58, 21);
             this.comboBoxTaskMinute.TabIndex = 7;
-            this.comboBoxTaskMinute.Text = "00";
             // 
             // label2
             // 
@@ -110,13 +153,6 @@
             this.AddTimeCheckBox.Text = "Указать время";
             this.AddTimeCheckBox.UseVisualStyleBackColor = true;
             this.AddTimeCheckBox.CheckedChanged += new System.EventHandler(this.AddTimeCheckBox_CheckedChanged);
-            // 
-            // NameTaskTextBox
-            // 
-            this.NameTaskTextBox.Location = new System.Drawing.Point(91, 190);
-            this.NameTaskTextBox.Name = "NameTaskTextBox";
-            this.NameTaskTextBox.Size = new System.Drawing.Size(427, 20);
-            this.NameTaskTextBox.TabIndex = 9;
             // 
             // label3
             // 
@@ -144,7 +180,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 300);
-            this.ControlBox = false;
             this.Controls.Add(this.CancelTaskButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.NameTaskTextBox);
@@ -155,25 +190,28 @@
             this.Controls.Add(this.AddTaskButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TaskCalendar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DateRequestForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Date Request";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DateRequestForm_FormClosing);
+            this.Load += new System.EventHandler(this.DateRequestForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MonthCalendar TaskCalendar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button AddTaskButton;
-        private System.Windows.Forms.ComboBox comboBoxTaskHour;
-        private System.Windows.Forms.ComboBox comboBoxTaskMinute;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox AddTimeCheckBox;
-        private System.Windows.Forms.TextBox NameTaskTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button CancelTaskButton;
+        protected System.Windows.Forms.Button AddTaskButton;
+        protected System.Windows.Forms.Button CancelTaskButton;
+        protected System.Windows.Forms.MonthCalendar TaskCalendar;
+        protected System.Windows.Forms.ComboBox comboBoxTaskHour;
+        protected System.Windows.Forms.ComboBox comboBoxTaskMinute;
+        protected System.Windows.Forms.CheckBox AddTimeCheckBox;
+        protected System.Windows.Forms.TextBox NameTaskTextBox;
     }
 }

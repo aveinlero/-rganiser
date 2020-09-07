@@ -1,6 +1,6 @@
 ﻿namespace Оrganiser
 {
-    partial class archive
+    partial class Archive
     {
         /// <summary>
         /// Required designer variable.
