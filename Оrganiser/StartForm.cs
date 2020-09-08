@@ -214,5 +214,10 @@ namespace Оrganiser
             else { Settings.Default.toolsPositionStatus = true; }
             ChangeToolsPosition();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Версия 1.0 \nАвтор: Avein \nE-Mail: avein@list.ru", "О программе");
+        }
     }
 }

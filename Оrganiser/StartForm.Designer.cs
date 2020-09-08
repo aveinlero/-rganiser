@@ -41,6 +41,8 @@
             this.menuStripService = new System.Windows.Forms.MenuStrip();
             this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeWindowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripService.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,7 +144,8 @@
             // menuStripService
             // 
             this.menuStripService.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.serviceToolStripMenuItem});
+            this.serviceToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStripService.Location = new System.Drawing.Point(0, 0);
             this.menuStripService.Name = "menuStripService";
             this.menuStripService.Size = new System.Drawing.Size(778, 24);
@@ -163,6 +166,21 @@
             this.changeWindowsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.changeWindowsToolStripMenuItem.Text = "Обменять окна";
             this.changeWindowsToolStripMenuItem.Click += new System.EventHandler(this.ChangeWindowsToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.helpToolStripMenuItem.Text = "Помощь";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "О программе";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // StartForm
             // 
@@ -208,6 +226,8 @@
         private System.Windows.Forms.MenuStrip menuStripService;
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeWindowsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
