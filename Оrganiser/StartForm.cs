@@ -44,9 +44,15 @@ namespace Оrganiser
             {
                 archiveTasks = DailyTask.LoadTaskList(fileArchive);
             }
+            
+            CreateToolTip(ButtonCompleteTask, "Отправить событие в архив с отметкой \"завершено\"");
+            CreateToolTip(ButtonResetTask, "Обновить/удалить событие");
+            CreateToolTip(ButtonOpenArchive, "Архив событий");
+            CreateToolTip(AddTaskButton, "Добавить новое событие");
 
             this.UpdateStartForm();
             this.DeactivateControlButtons();
+
         }
 
         private void StartForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,6 +92,7 @@ namespace Оrganiser
 
         private void ButtonCompleteTask_Click(object sender, EventArgs e)
         {
+            dailyTasks[index].status = true;
             DailyTask.TransferTask(archiveTasks, dailyTasks, index);
             DailyTask.UpdateList(dailyTasks, listViewTask, true);
             DailyTask.LimitList(archiveTasks, limitArchive);
@@ -124,7 +131,7 @@ namespace Оrganiser
         {
             descriptionTextBox.Enabled = false;
             descriptionTextBox.Text = "";
-            textBoxСurrentTask.Text = "Задача не выбрана";
+            textBoxСurrentTask.Text = "Событие не выбрано";
         }
 
         private void LoadDescription(int index)
@@ -154,6 +161,7 @@ namespace Оrganiser
             if (dailyTasks.Count == 0)
             {
                 LockDescription();
+                DailyTask.UpdateList(dailyTasks, listViewTask, true);
             }
             else
             {
@@ -166,5 +174,10 @@ namespace Оrganiser
             DeactivateControlButtons();
         }
 
+        private void CreateToolTip(Button button, string text) 
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(button, text);
+        }
     }
 }

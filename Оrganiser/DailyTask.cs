@@ -27,6 +27,7 @@ namespace Оrganiser
         public DateTime date { get; set; } = DateTime.Today;
         public bool checkTime { get; set; } = false;
         public string description { get; set; } = "";
+        public bool status { get; set; } = false;
 
         public DailyTask()
         {
@@ -76,25 +77,6 @@ namespace Оrganiser
             outgoing.RemoveAt(outIndex);
         }
 
-        public void AddTask(ListView list)
-        {
-            ListViewItem item = new ListViewItem();
-            if (checkTime)
-            {
-                item.Text = $"{date:d} {hour}:{minute}";
-                item.SubItems.Add(name);
-                ChangeTaskColor(item);
-                
-            }
-            else
-            {
-                item.Text = $"{date:d}";
-                item.SubItems.Add(name);
-                ChangeTaskColor(item);
-            }
-            list.Items.Add(item);
-        }
-
         private void ChangeTaskColor(ListViewItem item)
         {
             if (this.date < DateTime.Now.Date)
@@ -107,6 +89,41 @@ namespace Оrganiser
                 {
                     item.ForeColor = Color.Green;
                 }
+            }
+        }
+
+        public void AddTask(ListView list)
+        {
+            ListViewItem item = new ListViewItem();
+            if (checkTime)
+            {
+                item.Text = $"{date:d} {hour}:{minute}";                
+            }
+            else
+            {
+                item.Text = $"{date:d}";
+            }
+            item.SubItems.Add(name);
+            ChangeTaskColor(item);
+            list.Items.Add(item);
+        }
+
+        public static void UpdateList(List<DailyTask> tasks, ListView listView, bool sort)
+        {
+            listView.Items.Clear();
+            if (sort) { tasks.Sort(DailyTask.SortDailyTask); }
+            foreach (DailyTask task in tasks)
+            {
+                task.AddTask(listView);
+            }
+        }
+
+        public static void LimitList(List<DailyTask> list, int limit)
+        {
+            if (list.Count > limit)
+            {
+                list.RemoveAt(0);
+                LimitList(list, limit);
             }
         }
 
@@ -153,25 +170,6 @@ namespace Оrganiser
                         else { return -1; }
                     }
                 }
-            }
-        }
-
-        public static void UpdateList(List<DailyTask> tasks, ListView listView, bool sort)
-        {
-            listView.Items.Clear();
-            if (sort) { tasks.Sort(DailyTask.SortDailyTask); }
-            foreach (DailyTask task in tasks)
-            {
-                task.AddTask(listView);
-            }
-        }
-
-        public static void LimitList(List<DailyTask> list, int limit)
-        {
-            if (list.Count > limit)
-            {
-                list.RemoveAt(0);
-                LimitList(list, limit);
             }
         }
 

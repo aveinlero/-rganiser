@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DateRequestForm));
             this.NameTaskTextBox = new System.Windows.Forms.TextBox();
             this.TaskCalendar = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,9 +43,9 @@
             // 
             // NameTaskTextBox
             // 
-            this.NameTaskTextBox.Location = new System.Drawing.Point(91, 190);
+            this.NameTaskTextBox.Location = new System.Drawing.Point(100, 190);
             this.NameTaskTextBox.Name = "NameTaskTextBox";
-            this.NameTaskTextBox.Size = new System.Drawing.Size(427, 20);
+            this.NameTaskTextBox.Size = new System.Drawing.Size(418, 20);
             this.NameTaskTextBox.TabIndex = 9;
             // 
             // TaskCalendar
@@ -146,7 +147,7 @@
             // 
             this.AddTimeCheckBox.AutoSize = true;
             this.AddTimeCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddTimeCheckBox.Location = new System.Drawing.Point(91, 216);
+            this.AddTimeCheckBox.Location = new System.Drawing.Point(100, 216);
             this.AddTimeCheckBox.Name = "AddTimeCheckBox";
             this.AddTimeCheckBox.Size = new System.Drawing.Size(141, 24);
             this.AddTimeCheckBox.TabIndex = 8;
@@ -160,9 +161,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(14, 188);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.Size = new System.Drawing.Size(80, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Задача:";
+            this.label3.Text = "Событие:";
             // 
             // CancelTaskButton
             // 
@@ -190,6 +191,7 @@
             this.Controls.Add(this.AddTaskButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TaskCalendar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DateRequestForm";

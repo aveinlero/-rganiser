@@ -119,5 +119,25 @@ namespace Оrganiser.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon complete {
+            get {
+                object obj = ResourceManager.GetObject("complete", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon uncomplete {
+            get {
+                object obj = ResourceManager.GetObject("uncomplete", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

@@ -153,5 +153,11 @@
   <ItemGroup>
     <None Include="Resources\ButtonAdd 64x35 origin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\complete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uncomplete.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

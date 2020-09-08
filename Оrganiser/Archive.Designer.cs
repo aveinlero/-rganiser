@@ -34,6 +34,7 @@
             this.Tasks = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ButtonRestore = new System.Windows.Forms.Button();
             this.ButtonDelete = new System.Windows.Forms.Button();
+            this.TaskStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listArchive
@@ -41,6 +42,7 @@
             this.listArchive.CheckBoxes = true;
             this.listArchive.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Date,
+            this.TaskStatus,
             this.Tasks});
             this.listArchive.HideSelection = false;
             this.listArchive.Location = new System.Drawing.Point(12, 56);
@@ -59,7 +61,7 @@
             // Tasks
             // 
             this.Tasks.Text = "Задача";
-            this.Tasks.Width = 480;
+            this.Tasks.Width = 450;
             // 
             // ButtonRestore
             // 
@@ -82,6 +84,11 @@
             this.ButtonDelete.Text = "Удалить";
             this.ButtonDelete.UseVisualStyleBackColor = true;
             this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
+            // 
+            // TaskStatus
+            // 
+            this.TaskStatus.Text = "";
+            this.TaskStatus.Width = 30;
             // 
             // Archive
             // 
@@ -109,5 +116,6 @@
         private System.Windows.Forms.Button ButtonDelete;
         private System.Windows.Forms.ColumnHeader Date;
         private System.Windows.Forms.ColumnHeader Tasks;
+        private System.Windows.Forms.ColumnHeader TaskStatus;
     }
 }
