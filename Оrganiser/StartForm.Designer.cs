@@ -38,12 +38,16 @@
             this.ButtonResetTask = new System.Windows.Forms.Button();
             this.ButtonCompleteTask = new System.Windows.Forms.Button();
             this.AddTaskButton = new System.Windows.Forms.Button();
+            this.menuStripService = new System.Windows.Forms.MenuStrip();
+            this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeWindowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripService.SuspendLayout();
             this.SuspendLayout();
             // 
             // descriptionTextBox
             // 
             this.descriptionTextBox.Enabled = false;
-            this.descriptionTextBox.Location = new System.Drawing.Point(12, 53);
+            this.descriptionTextBox.Location = new System.Drawing.Point(322, 68);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(444, 222);
             this.descriptionTextBox.TabIndex = 0;
@@ -56,7 +60,7 @@
             this.Date,
             this.DayTask});
             this.listViewTask.HideSelection = false;
-            this.listViewTask.Location = new System.Drawing.Point(462, 53);
+            this.listViewTask.Location = new System.Drawing.Point(12, 68);
             this.listViewTask.MultiSelect = false;
             this.listViewTask.Name = "listViewTask";
             this.listViewTask.Size = new System.Drawing.Size(304, 222);
@@ -80,7 +84,7 @@
             this.textBoxСurrentTask.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxСurrentTask.Enabled = false;
             this.textBoxСurrentTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxСurrentTask.Location = new System.Drawing.Point(13, 12);
+            this.textBoxСurrentTask.Location = new System.Drawing.Point(323, 27);
             this.textBoxСurrentTask.Name = "textBoxСurrentTask";
             this.textBoxСurrentTask.Size = new System.Drawing.Size(443, 35);
             this.textBoxСurrentTask.TabIndex = 6;
@@ -91,7 +95,7 @@
             this.ButtonOpenArchive.BackgroundImage = global::Оrganiser.Properties.Resources.checklist_64x35;
             this.ButtonOpenArchive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonOpenArchive.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonOpenArchive.Location = new System.Drawing.Point(617, 12);
+            this.ButtonOpenArchive.Location = new System.Drawing.Point(167, 27);
             this.ButtonOpenArchive.Name = "ButtonOpenArchive";
             this.ButtonOpenArchive.Size = new System.Drawing.Size(64, 35);
             this.ButtonOpenArchive.TabIndex = 7;
@@ -103,7 +107,7 @@
             this.ButtonResetTask.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonCancel_64x35_v2;
             this.ButtonResetTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonResetTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonResetTask.Location = new System.Drawing.Point(532, 12);
+            this.ButtonResetTask.Location = new System.Drawing.Point(82, 27);
             this.ButtonResetTask.Name = "ButtonResetTask";
             this.ButtonResetTask.Size = new System.Drawing.Size(64, 35);
             this.ButtonResetTask.TabIndex = 4;
@@ -116,7 +120,7 @@
             this.ButtonCompleteTask.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonCompleteTask.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonCompleteTask.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ButtonCompleteTask.Location = new System.Drawing.Point(462, 12);
+            this.ButtonCompleteTask.Location = new System.Drawing.Point(12, 27);
             this.ButtonCompleteTask.Name = "ButtonCompleteTask";
             this.ButtonCompleteTask.Size = new System.Drawing.Size(64, 35);
             this.ButtonCompleteTask.TabIndex = 3;
@@ -128,18 +132,43 @@
             this.AddTaskButton.BackgroundImage = global::Оrganiser.Properties.Resources.ButtonAdd_64x35_origin;
             this.AddTaskButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddTaskButton.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddTaskButton.Location = new System.Drawing.Point(702, 12);
+            this.AddTaskButton.Location = new System.Drawing.Point(252, 27);
             this.AddTaskButton.Name = "AddTaskButton";
             this.AddTaskButton.Size = new System.Drawing.Size(64, 35);
             this.AddTaskButton.TabIndex = 1;
             this.AddTaskButton.UseVisualStyleBackColor = true;
             this.AddTaskButton.Click += new System.EventHandler(this.AddTaskButton_Click);
             // 
+            // menuStripService
+            // 
+            this.menuStripService.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serviceToolStripMenuItem});
+            this.menuStripService.Location = new System.Drawing.Point(0, 0);
+            this.menuStripService.Name = "menuStripService";
+            this.menuStripService.Size = new System.Drawing.Size(778, 24);
+            this.menuStripService.TabIndex = 8;
+            this.menuStripService.Text = "menuStripService";
+            // 
+            // serviceToolStripMenuItem
+            // 
+            this.serviceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeWindowsToolStripMenuItem});
+            this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
+            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.serviceToolStripMenuItem.Text = "Сервис";
+            // 
+            // changeWindowsToolStripMenuItem
+            // 
+            this.changeWindowsToolStripMenuItem.Name = "changeWindowsToolStripMenuItem";
+            this.changeWindowsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.changeWindowsToolStripMenuItem.Text = "Обменять окна";
+            this.changeWindowsToolStripMenuItem.Click += new System.EventHandler(this.ChangeWindowsToolStripMenuItem_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 292);
+            this.ClientSize = new System.Drawing.Size(778, 301);
             this.Controls.Add(this.ButtonOpenArchive);
             this.Controls.Add(this.textBoxСurrentTask);
             this.Controls.Add(this.listViewTask);
@@ -147,16 +176,21 @@
             this.Controls.Add(this.ButtonCompleteTask);
             this.Controls.Add(this.AddTaskButton);
             this.Controls.Add(this.descriptionTextBox);
+            this.Controls.Add(this.menuStripService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStripService;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(794, 331);
-            this.MinimumSize = new System.Drawing.Size(794, 331);
+            this.MaximumSize = new System.Drawing.Size(794, 340);
+            this.MinimumSize = new System.Drawing.Size(794, 340);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organizer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartForm_FormClosing);
             this.Load += new System.EventHandler(this.StartForm_Load);
+            this.menuStripService.ResumeLayout(false);
+            this.menuStripService.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -171,6 +205,9 @@
         private System.Windows.Forms.ColumnHeader DayTask;
         private System.Windows.Forms.RichTextBox textBoxСurrentTask;
         private System.Windows.Forms.Button ButtonOpenArchive;
+        private System.Windows.Forms.MenuStrip menuStripService;
+        private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeWindowsToolStripMenuItem;
     }
 }
 

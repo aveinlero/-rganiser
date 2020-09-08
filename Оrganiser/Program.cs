@@ -30,6 +30,7 @@ namespace Оrganiser
             {
                 DailyTask.SaveTaskList(startForm.dailyTasks, startForm.fileTasks);
                 DailyTask.SaveTaskList(startForm.archiveTasks, startForm.fileArchive);
+                Properties.Settings.Default.Save();
             }
         }
     }

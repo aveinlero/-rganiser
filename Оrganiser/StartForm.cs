@@ -24,6 +24,7 @@ namespace Оrganiser
         public int index { get; private set; } = 0;
         public int limitArchive { get; } = 20;
 
+
         public StartForm()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace Оrganiser
 
             this.UpdateStartForm();
             this.DeactivateControlButtons();
+            this.ChangeToolsPosition();
 
         }
 
@@ -178,6 +180,39 @@ namespace Оrganiser
         {
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(button, text);
+        }
+
+        private void ChangeToolsPosition()
+        {
+
+            if (Settings.Default.toolsPositionStatus)
+            {
+                this.descriptionTextBox.Location = new Point(322, 68);
+                this.listViewTask.Location = new Point(12, 68);
+                this.textBoxСurrentTask.Location = new Point(323, 27);
+                this.ButtonOpenArchive.Location = new Point(167, 27);
+                this.ButtonResetTask.Location = new Point(82, 27);
+                this.ButtonCompleteTask.Location = new Point(12, 27);
+                this.AddTaskButton.Location = new Point(252, 27);
+
+            }
+            else
+            {
+                this.descriptionTextBox.Location = new Point(11, 68);
+                this.listViewTask.Location = new Point(461, 68);
+                this.textBoxСurrentTask.Location = new Point(12, 27);
+                this.ButtonOpenArchive.Location = new Point(616, 27);
+                this.ButtonResetTask.Location = new Point(531, 27);
+                this.ButtonCompleteTask.Location = new Point(461, 27);
+                this.AddTaskButton.Location = new Point(701, 27);
+            }
+        }
+
+        private void ChangeWindowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Settings.Default.toolsPositionStatus) { Settings.Default.toolsPositionStatus = false; }
+            else { Settings.Default.toolsPositionStatus = true; }
+            ChangeToolsPosition();
         }
     }
 }
