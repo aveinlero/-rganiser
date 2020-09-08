@@ -27,6 +27,7 @@ namespace Оrganiser
 
         public void FormUpdateCancelTaskButton_Click(object sender, EventArgs e)
         {
+            startForm.dailyTasks[startForm.index].status = false;
             DailyTask.TransferTask(startForm.archiveTasks, startForm.dailyTasks, startForm.index);
             startForm.UpdateStartForm();
             ShowStartForm();

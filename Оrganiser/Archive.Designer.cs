@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Archive));
             this.listArchive = new System.Windows.Forms.ListView();
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tasks = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ButtonRestore = new System.Windows.Forms.Button();
             this.ButtonDelete = new System.Windows.Forms.Button();
-            this.TaskStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imageListStatus = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // listArchive
@@ -42,13 +43,13 @@
             this.listArchive.CheckBoxes = true;
             this.listArchive.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Date,
-            this.TaskStatus,
             this.Tasks});
             this.listArchive.HideSelection = false;
             this.listArchive.Location = new System.Drawing.Point(12, 56);
             this.listArchive.MultiSelect = false;
             this.listArchive.Name = "listArchive";
             this.listArchive.Size = new System.Drawing.Size(604, 284);
+            this.listArchive.SmallImageList = this.imageListStatus;
             this.listArchive.TabIndex = 0;
             this.listArchive.UseCompatibleStateImageBehavior = false;
             this.listArchive.View = System.Windows.Forms.View.Details;
@@ -56,7 +57,7 @@
             // Date
             // 
             this.Date.Text = "Дата";
-            this.Date.Width = 100;
+            this.Date.Width = 130;
             // 
             // Tasks
             // 
@@ -85,10 +86,12 @@
             this.ButtonDelete.UseVisualStyleBackColor = true;
             this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
-            // TaskStatus
+            // imageListStatus
             // 
-            this.TaskStatus.Text = "";
-            this.TaskStatus.Width = 30;
+            this.imageListStatus.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListStatus.ImageStream")));
+            this.imageListStatus.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListStatus.Images.SetKeyName(0, "uncomplete.ico");
+            this.imageListStatus.Images.SetKeyName(1, "complete.ico");
             // 
             // Archive
             // 
@@ -116,6 +119,6 @@
         private System.Windows.Forms.Button ButtonDelete;
         private System.Windows.Forms.ColumnHeader Date;
         private System.Windows.Forms.ColumnHeader Tasks;
-        private System.Windows.Forms.ColumnHeader TaskStatus;
+        private System.Windows.Forms.ImageList imageListStatus;
     }
 }

@@ -29,6 +29,10 @@ namespace Оrganiser
 
         private void Archive_Load(object sender, EventArgs e)
         {
+            ImageList images = new ImageList();
+            images.Images.Add(Resources.complete);
+            images.Images.Add(Resources.uncomplete);
+
             DailyTask.UpdateList(startForm.archiveTasks, listArchive, false);
         }
 

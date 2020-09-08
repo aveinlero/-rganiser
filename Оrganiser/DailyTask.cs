@@ -103,6 +103,18 @@ namespace Оrganiser
             {
                 item.Text = $"{date:d}";
             }
+            if (!(list.SmallImageList == null))
+            {
+                if (status)
+                {
+                    item.ImageIndex = 1;
+                }
+                else
+                {
+                    item.ImageIndex = 0;
+                }
+            }
+
             item.SubItems.Add(name);
             ChangeTaskColor(item);
             list.Items.Add(item);
